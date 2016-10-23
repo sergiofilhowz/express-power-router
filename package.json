@@ -1,0 +1,33 @@
+{
+  "name": "express-power-router",
+  "version": "1.0.0",
+  "description": "An extreme powerful Express Routing machine",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergiofilhowz/express-power-router.git"
+  },
+  "keywords": [
+    "express",
+    "router",
+    "interceptor"
+  ],
+  "author": "Sérgio Marcelino <sergiofilhow@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sergiofilhowz/express-power-router/issues"
+  },
+  "homepage": "https://github.com/sergiofilhowz/express-power-router#readme",
+  "dependencies": {
+    "lodash": "^4.16.4",
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.1.2"
+  }
+}
