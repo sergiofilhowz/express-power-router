@@ -20,7 +20,12 @@ var router = powerRouter.createRouter('/myController');
 
 // the third argument will be sent to interceptors
 router.get('/', callback, { addProperty : true });
+router.get('/customEnd', callbackCustomEnd);
 router.get('/throwError', throwError);
+
+function callbackCustomEnd(req, res) {
+    res.end('my custom end');
+}
 
 function callback() {
     // request and response are from express

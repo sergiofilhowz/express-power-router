@@ -17,6 +17,16 @@ describe('Express Power Router', () => {
             });
     });
 
+    it('should get result with custom end', (done) => {
+        chai.request(server)
+            .get('/myController/customEnd')
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.text.should.equal('my custom end')
+                done();
+            });
+    });
+
     it('should throw error', (done) => {
         chai.request(server)
             .get('/myController/throwError')

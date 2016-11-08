@@ -1,6 +1,7 @@
 var express = require('express'),
     BadRequestError = require('./lib/bad.request.error'),
     NotFoundError = require('./lib/not.found.error'),
+    HttpError = require('./lib/http.error'),
     InterceptorManager = require('./lib/interceptor'),
     Controller = require('./lib/controller');
 
@@ -26,5 +27,6 @@ function ExpressPowerRouter(options) {
 
 ExpressPowerRouter.BadRequestError = BadRequestError;
 ExpressPowerRouter.NotFoundError = NotFoundError;
+ExpressPowerRouter.HttpError = HttpError;
 
 module.exports = ExpressPowerRouter;
