@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/sergiofilhowz/express-power-router.svg?branch=master)](https://travis-ci.org/sergiofilhowz/express-power-router)
+[![CircleCI](https://circleci.com/gh/sergiofilhowz/express-power-router.svg?style=svg)](https://circleci.com/gh/sergiofilhowz/express-power-router)
 
 # express-power-router
 An extreme powerful Express Routing machine
