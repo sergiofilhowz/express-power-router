@@ -1,6 +1,6 @@
 {
   "name": "express-power-router",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An extreme powerful Express Routing machine",
   "main": "index.js",
   "scripts": {

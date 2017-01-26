@@ -18,6 +18,8 @@ powerRouter.createInterceptor({
 // now lets create a new router and endpoint
 var router = powerRouter.createRouter('/myController');
 
+router.defaultAction = req => req.defaultActionExecuted = true;
+
 // the third argument will be sent to interceptors
 router.get('/', callback, { addProperty : true });
 router.get('/customEnd', callbackCustomEnd);
