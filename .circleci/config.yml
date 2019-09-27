@@ -20,7 +20,7 @@ jobs:
 
       - run:
           name: Install Typescript
-          command: npm install typescript -g
+          command: sudo npm install typescript -g
       - run:
           name: Install dependencies
           command: yarn
