@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "target": "es6",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "files": [
+    "lib/bad.request.error.ts",
+    "lib/not.found.error.ts",
+    "lib/http.error.ts",
+    "lib/interceptor.ts",
+    "lib/controller.ts",
+    "index.ts",
+    "test/server.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

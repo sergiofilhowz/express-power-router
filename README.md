@@ -5,50 +5,50 @@
 An extreme powerful Express Routing machine
 
 ## What is it ?
-This module adds the Promise functionality to your express app.
+This module adds the async/await to your express app.
 In addition to promise, you can add endpoint configurations so you can intercept the request and do
 everything you want.
 
 ## Usage
-    var PowerRouter = require('express-power-router');
-    var powerRouter = new PowerRouter({
-        Promise : bluebirdPromise // this is optional, the default is Global NodeJS Promise
-    });
+```typescript
+import express, { Request, Response } from 'express';
+import controller, { RestController, GET, POST, BadRequestError, CallableStack, Interceptor, RestInterceptor } from 'express-power-router';
 
-    // we are creating an interceptor to log result
-    powerRouter.createInterceptor({
-        intercepts : parameters => parameters.logResult,
-        execute : (parameters, req, res, stack) => {
-            return stack.next().then(result => {
-                console.log(result);
-                return result;
-            });
-        }
-    });
+const app = express();
 
-    // now lets create a new router and endpoint
-    var router = powerRouter.createRouter('/myController');
+@RestInterceptor()
+class AddPropertyInterceptor implements Interceptor {
+  intercepts(parameters:any):boolean {
+    return parameters.addProperty;
+  }
 
-    // the third argument will be sent to interceptors
-    router.get('/', callback, { logResult : true });
+  async execute(parameters:any, req:Request, res:Response, stack:CallableStack) {
+    const result = await stack.next();
+    result.anotherResult = 'The result has been changed!';
+    return result;
+  }
+}
 
-    function callback(request, response) {
-        // request and response are from express
-        return Promise.resolve({
-            result : 'I can return a promise!'
-        });
-    }
+@RestController('/myController')
+class TestRouter {
 
-    // lets assume we already have a var app with express app
-    app.use(powerRouter); // use plugin the powerRouter to your express app
+  @GET('/', { addProperty: true })
+  async get() {
+    const result = await someModule.execAsyncCall();
+    return result; 
+  }
 
+  @GET('/customEnd')
+  async customEnd(req:Request, res:Response) {
+    res.end('my custom end');
+  }
 
-# Errors
+  @POST('/throwError')
+  async throwError() {
+    throw new BadRequestError('My error message');
+  }
+}
 
-PowerRouter.BadRequestError to throw 400 code
-PowerRouter.NotFoundError to throw 404 code
-
-# interceptor parameters
-parameters.method -> GET, POST, PUT, DELETE'
-parameters.path -> the controller path + endpoint path
-aditional parameters are sent by third argument
+app.use(controller.router); // use plugin the powerRouter to your express app
+app.listen(process.env.PORT || 8080);
+```
