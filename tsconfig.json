@@ -14,8 +14,6 @@
     "emitDecoratorMetadata": true
   },
   "files": [
-    "lib/bad.request.error.ts",
-    "lib/not.found.error.ts",
     "lib/http.error.ts",
     "lib/interceptor.ts",
     "lib/controller.ts",

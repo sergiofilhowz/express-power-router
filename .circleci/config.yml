@@ -25,7 +25,7 @@ jobs:
           name: Install dependencies
           command: yarn
       - run:
-          name: Install dependencies
+          name: Test
           command: yarn test
       - save_cache:
           paths:

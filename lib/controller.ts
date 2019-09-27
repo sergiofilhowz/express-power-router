@@ -1,4 +1,4 @@
-import HttpError from './http.error';
+import { HttpError } from './http.error';
 import express, { Request, Response, Router } from 'express';
 import InterceptorManager, { Interceptor } from './interceptor';
 
