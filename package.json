@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/sergiofilhowz/express-power-router#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.19.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.1",
